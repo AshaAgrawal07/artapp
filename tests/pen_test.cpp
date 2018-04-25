@@ -8,7 +8,7 @@
 
 using namespace std;
 
-TEST_CASE("drawer constructor") {
+TEST_CASE("pen constructor") {
 Pen tool = new Pen(50, 50, 50, .5, 50);
 REQUIRE(tool.r_val == 50);
 REQUIRE(tool.g_val == 50);
