@@ -1,4 +1,5 @@
-**log 4/21**
+**log 4/21**  
+
 Just realized that I needed a development.md file, so I'll put the entire week's worth of notes down here
 ---
 1. color_ramp vs built in slider function
@@ -9,3 +10,7 @@ Just realized that I needed a development.md file, so I'll put the entire week's
  
 3. enums vs classes
   I had initally created enums for pens/erasers/shapes, but will be creating classes for them instead as per the feedback during code review today.
+
+**log 4/24**  
+1. Figuring out functions for classes
+  This seems trivial, but in terms of thinking about expanding the project and the functionalities of the tools (each have a class), figuring out which functions each class should have is pretty important.  At first, I created a 'drawer', which is the basic drawing tool.  It has two children so far: pen and eraser.  Technically, eraser will have all of the same functionalities as pen, though its rgb can only be set once (to the initial background color) and its alpha value can change with its upper bound (? <-- need to check if its UB or LB) as the alpha value of the background color. That means that I will have to write overrides for the set rgba to take into account the restrictions on the eraser 
