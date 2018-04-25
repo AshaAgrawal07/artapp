@@ -14,3 +14,10 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 **log 4/24**  
 1. Figuring out functions for classes
   This seems trivial, but in terms of thinking about expanding the project and the functionalities of the tools (each have a class), figuring out which functions each class should have is pretty important.  At first, I created a 'drawer', which is the basic drawing tool.  It has two children so far: pen and eraser.  Technically, eraser will have all of the same functionalities as pen, though its rgb can only be set once (to the initial background color) and its alpha value can change with its upper bound (? <-- need to check if its UB or LB) as the alpha value of the background color. That means that I will have to write overrides for the set rgba to take into account the restrictions on the eraser 
+
+**log 4/25**
+1. Inheritance is confusing
+  Trying to figure out how inheritance works in C++ using sites:
+  https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function
+  https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method
+  https://www.geeksforgeeks.org/inheritance-in-c/
