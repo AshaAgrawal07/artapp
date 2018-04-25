@@ -18,6 +18,11 @@ class ofApp : public ofBaseApp{
 	ofxToggle pen_eraser;
 	ofxColorGradient<ofColor> color_ramp;
 
+	int bg_r_val;
+	int bg_g_val;
+	int bg_b_val;
+	int bg_a_val;
+
 	public:
 		void setup();
 		void update();
