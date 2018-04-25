@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class pen : public drawer {
+class Pen : public Drawer {
 public:
     /**
      * changes the red value of the tool

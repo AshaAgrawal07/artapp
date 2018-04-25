@@ -7,23 +7,18 @@
 
 using namespace std;
 
-class eraser : public drawer {
+class Eraser : public Drawer {
+public:
+    int bg_r_val;
+    int bg_g_val;
+    int bg_b_val;
+    int bg_a_val;
 
 public:
-    /**
-     * changes the red value of the tool
-     * @param r_value the new red value
-     */
-    void set_r_val(int r_value);
-    /**
-     * changes the green value of the tool
-     * @param g_value the new green value
-     */
-    void set_g_val(int g_value);
-    /**
-     * changes the blue value of the tool
-     * @param b_value the new blue value
-     */
-    void set_b_val(int b_value);
+
+    void set_bg_r_val(int r_value);
+    void set_bg_g_val(int g_value);
+    void set_bg_b_val(int b_value);
+    void set_bg_a_val(int a_value);
 };
 #endif //FINAL_PROJECT_ASHAAGRAWAL07_ERASER_H
