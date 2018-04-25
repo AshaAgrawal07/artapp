@@ -6,7 +6,6 @@
 #include "catch.hpp"
 #include "../src/drawer.h"
 
-using namespace std;
 
 TEST_CASE("pen constructor") {
 Pen tool = new Pen(50, 50, 50, .5, 50);
@@ -77,4 +76,3 @@ tool.set_width(200);
 REQUIRE(tool.width == 200);
 }
 
-}

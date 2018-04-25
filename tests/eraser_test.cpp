@@ -6,8 +6,6 @@
 #include "catch.hpp"
 #include "../src/eraser.h"
 
-using namespace std;
-
 TEST_CASE("eraser constructor") {
 Eraser tool = new Eraser(50, 50, 50, .5, 50);
 REQUIRE(tool.r_val == 50);
@@ -77,4 +75,3 @@ tool.set_width(200);
 REQUIRE(tool.width == 200);
 }
 
-}
