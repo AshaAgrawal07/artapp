@@ -5,21 +5,51 @@
 #include "drawer.h"
 
 void set_r_val(int r_value) {
-    r_val = r_value;
+    if (r_value < 0) {
+        r_val = 0;
+    } else if (r_value > 255) {
+        r_val = 255;
+    } else {
+        r_val = r_value;
+    }
 }
 
 void set_g_val(int g_value) {
-    g_val = g_value;
+    if (g_value < 0) {
+        g_val = 0;
+    } else if (g_value > 255) {
+        g_val = 255;
+    } else {
+        g_val = g_value;
+    }
 }
 
 void set_b_val(int b_value) {
-    b_val = b_value;
+    if (b_value < 0) {
+        b_val = 0;
+    } else if (b_value > 255) {
+        b_val = 255;
+    } else {
+        b_val = b_value;
+    }
 }
 
-void set_a_val(int a_value) {
-    a_val = a_value;
+void set_a_val(double a_value) {
+    if (a_value < 0) {
+        a_val = 0;
+    } else if (a_value > 1) {
+        a_val = 1;
+    } else {
+        a_val = a_value;
+    }
 }
 
 void set_width(int new_width) {
-    width = new_width;
+    if (new_width < 0) {
+        width = 0;
+    } else if (new_width > 255) {
+        width = 1000;
+    } else {
+        width = new_width;
+    }
 }

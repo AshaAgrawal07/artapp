@@ -8,7 +8,7 @@
 using namespace std;
 
 class Drawer {
-protected:
+public:
     /**
      * red value of the tool
      */
@@ -24,7 +24,7 @@ protected:
     /**
      * alpha value of the tool
      */
-    int a_val;
+    double a_val;
     /**
      * width/thickness of the tool
      */
@@ -32,7 +32,7 @@ protected:
 
 public:
     //constructor
-    Drawer(int r, int g, int b, int a, int w) : r_val(r), g_val(g), b_val(b); a_val(a), width(w) {}
+    Drawer(int r, int g, int b, int a, int w) : r_val(r), g_val(g), b_val(b), a_val(a), width(w) {}
 
     /**
      * changes the red value of the tool

@@ -8,11 +8,11 @@
 using namespace std;
 
 class Eraser : public Drawer {
-private:
+public:
     /**
      * this is the alpha value of the background color, which will serve as the upperbound for the alpha values of the eraser
      */
-    int bg_a_val;
+    double bg_a_val;
 
 public:
     //constructor
