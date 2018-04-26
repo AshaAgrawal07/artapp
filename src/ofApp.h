@@ -2,21 +2,24 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
-#include "ofxSvg.h"
-#include "ofxColorGradient.h"
+#include "ofxVectorGraphics.h"
+//#include "ofxSvg.h"
+//#include "ofxColorGradient.h"
 #include "ofxShivaVGRenderer.h"
 
+
+#include "tool.h"
+#include "eraser.h"
+#include "pen.h"
+
 class ofApp : public ofBaseApp{
-	//enum to represent the pen/function being used
-	enum Function {
-		PEN,
-		ERASER,
-		SHAPE
-	};
 
 	ofxPanel gui;
 	ofxToggle pen_eraser;
-	ofxColorGradient<ofColor> color_ramp;
+	//ofxColorGradient<ofColor> color_ramp;
+	ofxColorSlider colors;
+	ofxVectorGraphics output;
+	ofxIntSlider thickness;
 
 	public:
 		void setup();

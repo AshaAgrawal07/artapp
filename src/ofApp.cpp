@@ -18,19 +18,14 @@ void ofApp::setup(){
 	//setup the toggle for pen/eraser
 	gui.add(pen_eraser.setup("Pen//Eraser", false));
 
-	//create the color ramp
-	color_ramp.addColor(ofColor::black);
-	color_ramp.addColor(ofColor::red);
-	color_ramp.addColor(ofColor::orange);
-	color_ramp.addColor(ofColor::yellow);
-	color_ramp.addColor(ofColor::green);
-	color_ramp.addColor(ofColor::blue);
-	color_ramp.addColor(ofColor::purple);
-	color_ramp.addColor(ofColor::pink);
-	color_ramp.addColor(ofColor::white);
+	//create the color slider
+	gui.add(colors.setup("Color", ofColor(100, 100, 100, 100), ofColor(0, 0), ofColor(255, 255)));
+
+	//create the width/thickness slider
+	gui.add(thickness.setup("Pen width", 10, 0, 1000));
 
 	//the entire window will be the canvas
-	ofBackground(255, 255, 255);
+	ofBackground(255, 255, 255, 255);
 
 }
 
@@ -41,7 +36,26 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	//inspired by ofxVectorGraphicsExample
+	if (strokes.size() > 0) {
 
+		int numPts = strokes.size();
+
+		output.setColor(0x0088EE);
+		output.noFill();
+		output.beginShape();
+
+		int rescaleRes = 6;
+
+		for (int i = 0; i < numPts; i++) {
+			if (i == 0 || i == numPts - 1) {
+				output.curveVertex(strokes[i].x, strokes[i].y);
+			}
+			if (i % rescaleRes == 0) output.curveVertex(strokes[i].x, strokes[i].y);
+		}
+
+		output.endShape();
+	}
 }
 
 //--------------------------------------------------------------

@@ -20,12 +20,12 @@ void set_b_val(int b_value) {
 
 void Eraser::set_a_val(int a_value) {
     if(a_value <= bg_a_val) {
-        Drawer::a_val = a_value;
+		Tool::a_val = a_value;
     } else {
-        Drawer::a_val = bg_a_val;
+		Tool::a_val = bg_a_val;
     }
 }
 
 void set_width(int width) {
-    Drawer::set_width(width);
+	Tool::set_width(width);
 }
