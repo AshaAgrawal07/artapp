@@ -21,6 +21,11 @@ class ofApp : public ofBaseApp{
 	ofxVectorGraphics output;
 	ofxIntSlider thickness;
 
+	int bg_r_val;
+	int bg_g_val;
+	int bg_b_val;
+	int bg_a_val;
+
 	public:
 		void setup();
 		void update();
