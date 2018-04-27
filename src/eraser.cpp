@@ -26,6 +26,3 @@ void Eraser::set_a_val(int a_value) {
     }
 }
 
-void set_width(int width) {
-	Tool::set_width(width);
-}

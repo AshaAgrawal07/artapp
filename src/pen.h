@@ -11,6 +11,6 @@ using namespace std;
 class Pen : public Tool {
 public:
     //constructor
-    Pen (int r, int g, int b, int a, int w) : Tool(r, g, b, a, w) {}
+	Pen(int r, int g, int b, int a, int w) : Tool(r, g, b, a, w) {}
 };
 #endif //FINAL_PROJECT_ASHAAGRAWAL07_PEN_H
