@@ -14,7 +14,7 @@ Change the saturation of a particular color prior to using the specific pen
 Create multiple pens
 
 	I will need the following libraries that were already installed:
-ofxSVG
+ofxVectorGraphics
 ofxGUI
 
 	These are some additional libraries I found on the ofx site that were created by other people.  I am not completely sure if I will need all of them, or need different ones as I do not know all of these libraries’ functionalities or whether there are any overlaps as of now:
