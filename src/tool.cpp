@@ -57,7 +57,7 @@ void Tool::set_width(int new_width)
 	}
 }
 
-void Tool::set_Color(int r, int g, int b, int a)
+void Tool::setColor(int r, int g, int b, int a)
 {
 	r_val = r;
 	g_val = g;

@@ -6,7 +6,7 @@ void ofApp::setup(){
 	gui.setup();
 	
 	//setup the toggle for pen/eraser
-	gui.add(pen_eraser.setup("Pen//Eraser", false));
+	gui.add(pen_eraser.setup("Pen//Eraser", false, 100, 30));
 
 	//create the color slider
 	gui.add(colors.setup("Color", ofColor(100, 100, 100, 100), ofColor(0, 0), ofColor(255, 255)));
@@ -15,7 +15,7 @@ void ofApp::setup(){
 	gui.add(thickness.setup("Pen width", 10, 0, 1000));
 
 	//the entire window will be the canvas
-	ofBackground(0, 10, 0, 255);
+	ofBackground(255, 255, 255, 255);
 
 }
 
@@ -115,7 +115,7 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 {
 	std::cout << "Toggle Pressed" << std::endl;
 	//if toggle is false, then its on pen, else its on eraser
-	if (true) {
+	if (pen_eraser) {
 		tool = Eraser(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
 	}
 	else {

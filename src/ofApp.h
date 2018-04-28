@@ -24,6 +24,9 @@ class ofApp : public ofBaseApp{
 	int bg_b_val;
 	int bg_a_val;
 
+	stack <vector<ofPoint>> strokes;
+	vector <ofPoint> single_stroke;
+
 	public:
 		void setup();
 		void update();
@@ -46,8 +49,4 @@ class ofApp : public ofBaseApp{
 		
 		//draw shapes using the buttons
 		//void buttonPressed(const void* sender);
-
-		stack <vector<ofPoint>> strokes;
-		vector <ofPoint> single_stroke;
-
 };
