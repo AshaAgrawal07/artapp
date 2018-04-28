@@ -21,3 +21,10 @@ Just realized that I needed a development.md file, so I'll put the entire week's
   https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function
   https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method
   https://www.geeksforgeeks.org/inheritance-in-c/
+  
+**log 4/27**
+1. Inheritance was still not working  
+  Person at office hours told me to add 'virtual' keyword infront of functions in the parent class to allow polymorphism.  
+  
+2. ofxShivaVG
+  For some reason, there is a file in in the addon which does not let my code compile.  I deleted it and the code started compiling.
