@@ -27,9 +27,9 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 	//inspired by ofxVectorGraphicsExample
-	if (strokes.size() > 0) {
+	if (single_stroke.size() > 0) {
 
-		int numPts = strokes.size();
+		int numPts = single_stroke.size();
 
 		output.setColor(0x0088EE);
 		output.noFill();
@@ -39,9 +39,9 @@ void ofApp::draw(){
 
 		for (int i = 0; i < numPts; i++) {
 			if (i == 0 || i == numPts - 1) {
-				output.curveVertex(strokes[i].x, strokes[i].y);
+				output.curveVertex(single_stroke[i].x, single_stroke[i].y);
 			}
-			if (i % rescaleRes == 0) output.curveVertex(strokes[i].x, strokes[i].y);
+			if (i % rescaleRes == 0) output.curveVertex(single_stroke[i].x, single_stroke[i].y);
 		}
 
 		output.endShape();
@@ -70,21 +70,23 @@ void ofApp::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
 	//we add a new point to our line
-	//used from vectorGraphicsExample, though changed from vector to stack implementation
+	//inspired by vectorGraphicsExample
 	
-	strokes.push(ofPoint());
-	strokes.top.x = x;
-	strokes.top.y = y;
+	single_stroke.push_back(ofPoint());
+	single_stroke[single_stroke.size()-1].x = x;
+	single_stroke[single_stroke.size()-1].y = y;
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-	mouseDragged(x, y, button);
+	single_stroke.clear();
+	single_stroke[0].x = x;
+	single_stroke[0].y = y;
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+	strokes.push(single_stroke);
 }
 
 //--------------------------------------------------------------
