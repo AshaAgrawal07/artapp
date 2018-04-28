@@ -28,3 +28,8 @@ Just realized that I needed a development.md file, so I'll put the entire week's
   
 2. ofxShivaVG  
   For some reason, there is a file in in the addon which does not let my code compile.  I deleted it and the code started compiling.
+  
+**log 4/28**  
+1. ofRunApp(new ofApp())  
+  For some reason, ofApp() is not being recognized and message is saying that the function was deleted.  I have no clue when I deleted it or if I even did.
+
