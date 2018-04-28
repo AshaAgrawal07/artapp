@@ -1,7 +1,7 @@
-**log 4/21**  
+**log 4/21**    
 
 Just realized that I needed a development.md file, so I'll put the entire week's worth of notes down here
----
+
 1. color_ramp vs built in slider function  
   I originally imported an ofxColorGradient addon to get colors for the pen, but might replace it with the built-in color slider from the ofxGUI since it also has an alpha component so the user can affect the saturation/brightness of the color.  Although this means that the user can manually affect the rgba using 4 different sliders, the user might not be able to see the sample of the color beforehand.  This means that the user will have to test stroke the color, undo the stroke, and go through an entire process of trial and error before finding the color they really want.  Although this will not negatively effect their artwork, it will be tedius and annoying.
 
@@ -17,7 +17,14 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 
 **log 4/25**
 1. Inheritance is confusing  
-  Trying to figure out how inheritance works in C++ using sites:
-  https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function
-  https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method
-  https://www.geeksforgeeks.org/inheritance-in-c/
+  Trying to figure out how inheritance works in C++ using sites:  
+  https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function  
+  https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method  
+  https://www.geeksforgeeks.org/inheritance-in-c/  
+  
+**log 4/27**
+1. Inheritance was still not working  
+  Person at office hours told me to add 'virtual' keyword infront of functions in the parent class to allow polymorphism.  
+  
+2. ofxShivaVG  
+  For some reason, there is a file in in the addon which does not let my code compile.  I deleted it and the code started compiling.
