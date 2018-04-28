@@ -31,5 +31,5 @@ Just realized that I needed a development.md file, so I'll put the entire week's
   
 **log 4/28**  
 1. ofRunApp(new ofApp())  
-  For some reason, ofApp() is not being recognized and message is saying that the function was deleted.  I have no clue when I deleted it or if I even did.
+  For some reason, ofApp() is not being recognized and message is saying that the function was deleted.  I have no clue when I deleted it or if I even did.  Turns out that I had to create a default constructor for Tool; it compiles now
 
