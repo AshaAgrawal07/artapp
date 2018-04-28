@@ -2,16 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	//the next few lines are gotten from the example for ofxShivaVG
-	ofSetFrameRate(100.0f);
-	ofSetCurveResolution(100);
-	_defaultRenderer = ofGetCurrentRenderer();
-	_shivaVGRenderer = ofPtr<ofxShivaVGRenderer>(new ofxShivaVGRenderer);
-	ofSetCurrentRenderer(_shivaVGRenderer);
-
-	_shivaVGRenderer->setLineJoinStyle(VG_JOIN_ROUND);
-	_shivaVGRenderer->setLineCapStyle(VG_CAP_ROUND);
-	//------
 
 	gui.setup();
 	

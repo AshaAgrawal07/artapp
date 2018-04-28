@@ -3,9 +3,8 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofxVectorGraphics.h"
-//#include "ofxSvg.h"
-//#include "ofxColorGradient.h"
-#include "ofxShivaVGRenderer.h"
+#include <vector>
+#include <stack>
 
 
 #include "tool.h"
@@ -16,7 +15,6 @@ class ofApp : public ofBaseApp{
 
 	ofxPanel gui;
 	ofxToggle pen_eraser;
-	//ofxColorGradient<ofColor> color_ramp;
 	ofxColorSlider colors;
 	ofxVectorGraphics output;
 	ofxIntSlider thickness;
@@ -49,10 +47,7 @@ class ofApp : public ofBaseApp{
 		//draw shapes using the buttons
 		void buttonPressed(const void* sender);
 
-		std::stack <ofPoint> strokes;
+		stack <vector<ofPoint>> strokes;
+		vector <ofPoint> single_stroke;
 
-private:
-
-	ofPtr<ofBaseRenderer> _defaultRenderer;
-	ofPtr<ofxShivaVGRenderer> _shivaVGRenderer;
 };
