@@ -18,9 +18,9 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 **log 4/25**
 1. Inheritance is confusing  
   Trying to figure out how inheritance works in C++ using sites:
-  https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function
-  https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method
-  https://www.geeksforgeeks.org/inheritance-in-c/
+  https://stackoverflow.com/questions/357307/how-to-call-a-parent-class-function-from-derived-class-function  
+  https://stackoverflow.com/questions/6187020/access-base-class-variable-from-child-class-method  
+  https://www.geeksforgeeks.org/inheritance-in-c/  
   
 **log 4/27**
 1. Inheritance was still not working  
