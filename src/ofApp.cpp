@@ -15,7 +15,7 @@ void ofApp::setup(){
 	gui.add(thickness.setup("Pen width", 10, 0, 1000));
 
 	//the entire window will be the canvas
-	ofBackground(255, 255, 255, 255);
+	ofBackground(0, 10, 0, 255);
 
 }
 
@@ -31,20 +31,20 @@ void ofApp::draw(){
 
 		int numPts = single_stroke.size();
 
-		output.setColor(0x0088EE);
-		output.noFill();
-		output.beginShape();
+		tool.setColor(tool.r_val, tool.g_val, tool.b_val, tool.a_val);
+		tool.noFill();
+		tool.beginShape();
 
 		int rescaleRes = 6;
 
 		for (int i = 0; i < numPts; i++) {
 			if (i == 0 || i == numPts - 1) {
-				output.curveVertex(single_stroke[i].x, single_stroke[i].y);
+				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
 			}
-			if (i % rescaleRes == 0) output.curveVertex(single_stroke[i].x, single_stroke[i].y);
+			if (i % rescaleRes == 0) tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
 		}
 
-		output.endShape();
+		tool.endShape();
 	}
 }
 
@@ -113,11 +113,17 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 {
 	std::cout << "Toggle Pressed" << std::endl;
 	//if toggle is false, then its on pen, else its on eraser
+	if (true) {
+		tool = Eraser(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
+	}
+	else {
+		tool = Pen(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
+	}
 }
 
-void ofApp::buttonPressed(const void * sender)
-{
-}
+//void ofApp::buttonPressed(const void * sender)
+//{
+//}
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 

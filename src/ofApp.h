@@ -16,7 +16,7 @@ class ofApp : public ofBaseApp{
 	ofxPanel gui;
 	ofxToggle pen_eraser;
 	ofxColorSlider colors;
-	ofxVectorGraphics output;
+	Tool tool;
 	ofxIntSlider thickness;
 
 	int bg_r_val;
@@ -45,7 +45,7 @@ class ofApp : public ofBaseApp{
 		void ofApp::togglePressed(const void* sender, bool& pressed);
 		
 		//draw shapes using the buttons
-		void buttonPressed(const void* sender);
+		//void buttonPressed(const void* sender);
 
 		stack <vector<ofPoint>> strokes;
 		vector <ofPoint> single_stroke;

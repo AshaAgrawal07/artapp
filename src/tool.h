@@ -4,10 +4,11 @@
 
 #ifndef FINAL_PROJECT_ASHAAGRAWAL07_TOOL_H
 #define FINAL_PROJECT_ASHAAGRAWAL07_TOOL_H
+#include "ofxVectorGraphics.h"
 
 using namespace std;
 
-class Tool {
+class Tool : public ofxVectorGraphics{
 public:
     /**
      * red value of the tool
@@ -38,27 +39,32 @@ public:
      * changes the red value of the tool
      * @param r_value the new red value
      */
-    virtual void Tool::set_r_val(int r_value);
+    virtual void set_r_val(int r_value);
     /**
      * changes the green value of the tool
      * @param g_value the new green value
      */
-    virtual void Tool::set_g_val(int g_value);
+    virtual void set_g_val(int g_value);
     /**
      * changes the blue value of the tool
      * @param b_value the new blue value
      */
-	virtual void Tool::set_b_val(int b_value);
+	virtual void set_b_val(int b_value);
     /**
      * changes the alpha value of the tool
      * @param a_value the new alpha value
      */
-	virtual void Tool::set_a_val(int a_value);
+	virtual void set_a_val(int a_value);
     /**
      * changes the width/thickness of the tool
      * @param new_width the new width value
      */
-	virtual void Tool::set_width(int new_width);
+	virtual void set_width(int new_width);
+
+	/**
+	override the set_color function in ofxvectorgraphics to accept 4 params instead of 3
+	*/
+	virtual void setColor(int r, int g, int b, int a);
 
 };
 #endif //FINAL_PROJECT_ASHAAGRAWAL07_TOOL_H
