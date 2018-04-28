@@ -32,6 +32,7 @@ void ofApp::draw(){
 		int numPts = single_stroke.size();
 
 		tool.setColor(tool.r_val, tool.g_val, tool.b_val, tool.a_val);
+		tool.setLineWidth(tool.width);
 		tool.noFill();
 		tool.beginShape();
 
@@ -73,12 +74,13 @@ void ofApp::mouseDragged(int x, int y, int button){
 	//inspired by vectorGraphicsExample
 	
 	single_stroke.push_back(ofPoint());
-	single_stroke[single_stroke.size()-1].x = x;
-	single_stroke[single_stroke.size()-1].y = y;
+	single_stroke[single_stroke.size() - 1].x = x;
+	single_stroke[single_stroke.size() - 1].y = y;
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+	//inspired by vectorGraphicsExample
 	single_stroke.clear();
 	single_stroke[0].x = x;
 	single_stroke[0].y = y;

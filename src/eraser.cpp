@@ -6,15 +6,15 @@
 
 //overriding everything from Drawer
 
-void set_r_val(int r_value) {
+void Eraser::set_r_val(int r_value) {
 //not allowed to reset r_val
 }
 
-void set_g_val(int g_value) {
+void Eraser::set_g_val(int g_value) {
 //not allowed to reset g_val
 }
 
-void set_b_val(int b_value) {
+void Eraser::set_b_val(int b_value) {
 //not allowed to reset b_val
 }
 
