@@ -1,5 +1,6 @@
-**log 4/21**  
+**log 4/21**    
 
+---
 Just realized that I needed a development.md file, so I'll put the entire week's worth of notes down here
 ---
 1. color_ramp vs built in slider function  
@@ -26,5 +27,5 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 1. Inheritance was still not working  
   Person at office hours told me to add 'virtual' keyword infront of functions in the parent class to allow polymorphism.  
   
-2. ofxShivaVG
+2. ofxShivaVG  
   For some reason, there is a file in in the addon which does not let my code compile.  I deleted it and the code started compiling.
