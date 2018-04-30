@@ -33,3 +33,9 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 1. ofRunApp(new ofApp())  
   For some reason, ofApp() is not being recognized and message is saying that the function was deleted.  I have no clue when I deleted it or if I even did.  Turns out that I had to create a default constructor for Tool; it compiles now.
 
+**log 4/30**  
+1. Gui stuff not showing up
+  I've been trying to get the sliders and toggle button to show up for some time, but it is not.  I have my setBackGround() after the slider initializations, and I have tried setting BG to different colors manually, which works.  So I don't get why the sliders don't show up.
+
+2. AddListeners
+  I think I need to add AddListeners to all of my sliders and toggles so that I can use them in the update function (which I still need to write)
