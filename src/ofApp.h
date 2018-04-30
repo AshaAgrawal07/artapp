@@ -13,11 +13,7 @@
 
 class ofApp : public ofBaseApp{
 
-	ofxPanel gui;
-	ofxToggle pen_eraser;
-	ofxColorSlider colors;
-	Tool tool;
-	ofxIntSlider thickness;
+	
 
 	int bg_r_val;
 	int bg_g_val;
@@ -49,4 +45,13 @@ class ofApp : public ofBaseApp{
 		
 		//draw shapes using the buttons
 		//void buttonPressed(const void* sender);
+
+		ofxPanel gui;
+		ofxToggle pen_eraser;
+		ofxColorSlider red;
+		ofxColorSlider green;
+		ofxColorSlider blue;
+		ofxColorSlider alpha;
+		Tool tool;
+		ofxIntSlider thickness;
 };

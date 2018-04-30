@@ -5,18 +5,24 @@ void ofApp::setup(){
 
 	gui.setup();
 	
+	//the entire window will be the canvas
+	bg_r_val = 255;
+	bg_g_val = 255;
+	bg_b_val = 255;
+	bg_a_val = 255;
+	ofBackground(bg_r_val, bg_g_val, bg_b_val, bg_a_val);
+
 	//setup the toggle for pen/eraser
-	gui.add(pen_eraser.setup("Pen//Eraser", false, 100, 30));
+	gui.add(pen_eraser.setup("Pen//Eraser", false, 200, 30));
 
 	//create the color slider
-	gui.add(colors.setup("Color", ofColor(100, 100, 100, 100), ofColor(0, 0), ofColor(255, 255)));
+	gui.add(red.setup("Red", 100, 0, 255, 200, 30));
+	gui.add(green.setup("Green", 100, 0, 255, 200, 30));
+	gui.add(blue.setup("Blue", 100, 0, 255, 200, 30));
+	gui.add(alpha.setup("Alpha", 100, 0, 255, 200, 30));
 
 	//create the width/thickness slider
 	gui.add(thickness.setup("Pen width", 10, 0, 1000));
-
-	//the entire window will be the canvas
-	ofBackground(255, 255, 255, 255);
-
 }
 
 //--------------------------------------------------------------
@@ -26,23 +32,33 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+	pen_eraser.draw();
+	red.draw();
+	green.draw();
+	blue.draw();
+	alpha.draw();
+	thickness.draw();
+	
 	//inspired by ofxVectorGraphicsExample
 	if (single_stroke.size() > 0) {
 
 		int numPts = single_stroke.size();
-
-		tool.setColor(tool.r_val, tool.g_val, tool.b_val, tool.a_val);
-		tool.setLineWidth(tool.width);
+		tool.setColor(red.operator const ofColor_<unsigned char> &().r, green.operator const ofColor_<unsigned char> &().g, 
+			blue.operator const ofColor_<unsigned char> &().b, alpha.operator const ofColor_<unsigned char> &().a);
+		tool.setLineWidth(thickness.operator const int &());
 		tool.noFill();
 		tool.beginShape();
 
-		int rescaleRes = 6;
+		int rescaleRes = 1;
 
 		for (int i = 0; i < numPts; i++) {
 			if (i == 0 || i == numPts - 1) {
 				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
 			}
-			if (i % rescaleRes == 0) tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
+			if (i % rescaleRes == 0) {
+				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
+			}
 		}
 
 		tool.endShape();
@@ -82,6 +98,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
 	//inspired by vectorGraphicsExample
 	single_stroke.clear();
+	single_stroke.push_back(ofPoint());
 	single_stroke[0].x = x;
 	single_stroke[0].y = y;
 }

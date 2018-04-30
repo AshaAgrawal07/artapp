@@ -32,6 +32,8 @@ public:
     int width;
 
 public:
+	//default constructor
+	Tool() : r_val(0), g_val(0), b_val(0), a_val(0), width(0) {}
     //constructor
     Tool(int r, int g, int b, int a, int w) : r_val(r), g_val(g), b_val(b), a_val(a), width(w) {}
 
