@@ -20,8 +20,8 @@ class ofApp : public ofBaseApp{
 	int bg_b_val;
 	int bg_a_val;
 
-	stack <vector<ofPoint>> strokes;
-	vector <ofPoint> single_stroke;
+	//vector <vector<ofPoint>> strokes;
+	//vector <ofPoint> single_stroke;
 
 	public:
 		void setup();
@@ -51,8 +51,12 @@ class ofApp : public ofBaseApp{
 
 		ofxPanel gui;
 		ofxToggle pen_eraser;
-		ofxColorSlider color;
+		ofxColorSlider colorslider;
 		Tool tool;
 		ofxIntSlider thickness;
 		bool hide = false;
+
+		ofPolyline currentpolyline;
+		ofVec2f lastpoint;
+		vector<ofPolyline> strokes;
 };

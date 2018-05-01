@@ -16,7 +16,7 @@ void ofApp::setup(){
 	gui.add(pen_eraser.setup("Pen//Eraser", false, 200, 30));
 
 	//create the color slider
-	gui.add(color.setup("Color", 100, 0, 255, 200, 30));
+	gui.add(colorslider.setup("Color", 100, 0, 255, 200, 30));
 
 	//create the width/thickness slider
 	gui.add(thickness.setup("Pen width", 10, 0, 500));
@@ -26,37 +26,49 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	ofVec2f mouseposition (ofGetMouseX(), ofGetMouseY());
+	currentpolyline.curveTo(mouseposition);
+	lastpoint = mouseposition;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	
+
+	//first redraw 
+	for (int i = 0; i < strokes.size(); i++) {
+		ofPolyline oldpoly = strokes[i];
+		oldpoly.draw();
+	}
+
+	ofSetColor(colorslider);
+	tool.setLineWidth(thickness.operator const int &());
+
+	currentpolyline.draw();
+
+	//redraw everything that was drawn
+
 	//inspired by ofxVectorGraphicsExample
-	if (single_stroke.size() > 0) {
-
-		int numPts = single_stroke.size();
-
-		ofColor current_color = color;
-		tool.setColor(current_color);
-
-		tool.setLineWidth(thickness.operator const int &());
-		tool.noFill();
-		tool.beginShape();
-
-		int rescaleRes = 6;
-
-		for (int i = 0; i < numPts; i++) {
-			if (i == 0 || i == numPts - 1) {
-				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
-			}
-			if (i % rescaleRes == 0) {
-				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
-			}
-		}
-
-		tool.endShape();
-	} 
+	//if (single_stroke.size() > 0) {
+//
+//		int numPts = single_stroke.size();
+//
+//		ofSetColor(colorslider);
+//		tool.setLineWidth(thickness.operator const int &());
+//		tool.noFill();
+//		tool.beginShape();
+//
+//		int rescaleRes = 1;
+//
+//		for (int i = 0; i < numPts; i++) {
+//			if (i == 0 || i == numPts - 1) {
+//				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
+//			}
+//			if (i % rescaleRes == 0) {
+//				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
+//			}
+//		}
+//		tool.endShape();
+//	} 
 	if (!hide) {
 		gui.draw();
 	}
@@ -67,7 +79,7 @@ void ofApp::keyPressed(int key){
 	//basically control+z but only with the 'z' for simplicity purposes
 	//pops the most recent stroke off the stack of strokes
 	if (toupper(key) == 'Z') {
-		strokes.pop();
+		strokes.pop_back();
 	}
 	else if (toupper(key) == 'S') {
 		hide = true;
@@ -92,28 +104,32 @@ void ofApp::mouseMoved(int x, int y ){
 void ofApp::mouseDragged(int x, int y, int button){
 	//we add a new point to our line
 	//inspired by vectorGraphicsExample
-	if (ofPoint().x < 300) {
-		single_stroke.push_back(ofPoint());
-		single_stroke[single_stroke.size() - 1].x = x;
-		single_stroke[single_stroke.size() - 1].y = y;
-	}
+	//if (ofPoint().x < 300) {
+	//	single_stroke.push_back(ofPoint());
+	//	single_stroke[single_stroke.size() - 1].x = x;
+	//	single_stroke[single_stroke.size() - 1].y = y;
+	//}
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 	//inspired by vectorGraphicsExample
-	if (ofPoint().x < 300) {
-		strokes.push(single_stroke);
-		single_stroke.clear();
-		single_stroke.push_back(ofPoint());
-		single_stroke[0].x = x;
-		single_stroke[0].y = y;
-	}
+	//if (ofPoint().x < 300) {
+	//	single_stroke.clear();
+	//	single_stroke.push_back(ofPoint());
+	//	single_stroke[0].x = x;
+	//	single_stroke[0].y = y;
+	//}
+	currentpolyline.curveTo(x, y);
+	currentpolyline.curveTo(x, y);
+	lastpoint.set(x, y);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-	strokes.push(single_stroke);
+	currentpolyline.curveTo(x, y);
+	strokes.push_back(currentpolyline);
+	currentpolyline.clear();
 }
 
 //--------------------------------------------------------------
@@ -143,19 +159,16 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 	if (pen_eraser) {
 		tool = Eraser(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
 	} else {
-		tool = Pen(color.operator const ofColor_<unsigned char> &().r, color.operator const ofColor_<unsigned char> &().g,
-			color.operator const ofColor_<unsigned char> &().b, color.operator const ofColor_<unsigned char> &().a, 10);
+		tool = Pen(colorslider.operator const ofColor_<unsigned char> &().r, colorslider.operator const ofColor_<unsigned char> &().g,
+			colorslider.operator const ofColor_<unsigned char> &().b, colorslider.operator const ofColor_<unsigned char> &().a, 10);
 	}
 }
 
 void ofApp::exit()
 {
 	gui.saveToFile("drawing.xml");
+	std::cout << "saved" << std::endl;
 }
-
-//void ofApp::buttonPressed(const void * sender)
-//{
-//}
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
