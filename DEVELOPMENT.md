@@ -50,4 +50,8 @@ Just realized that I needed a development.md file, so I'll put the entire week's
     b) Get the color of the slider to reflect in the color of the stroke  
     c) Make sure that the strokes stay in the stack of strokes rather than disappearing  
     d) Make sure toggle button is working correctly  
-I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.pdf (openFrameworks Essentials) and its example programs to figure out how to fix some of my problems, but its not working.
+I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.pdf (openFrameworks Essentials) and its example programs to figure out how to fix some of my problems, but its not working.  
+  UPDATE: color now shows up on the stroke (needed to use ofSetColor(colorslider) rather than using Tool's setColor function) 
+  
+2. Redrawing strokes  
+  I realized that I need to redraw everything on the stack of strokes in the draw function so that the strokes don't disappear.  So using a stack won't be the greatest thing, or even a vector of ofPoints because it doesn't have a draw function.  I'm going to change strokes to a vector of ofPolyLines, which does have a draw function.
