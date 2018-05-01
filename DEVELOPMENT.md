@@ -35,7 +35,10 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 
 **log 4/30**  
 1. Gui stuff not showing up
-  I've been trying to get the sliders and toggle button to show up for some time, but it is not.  I have my setBackGround() after the slider initializations, and I have tried setting BG to different colors manually, which works.  So I don't get why the sliders don't show up.
+  I've been trying to get the sliders and toggle button to show up for some time, but it is not.  I have my setBackGround() after the slider initializations, and I have tried setting BG to different colors manually, which works.  So I don't get why the sliders don't show up. Went to office hours and realized that I needed to call draw() on all of my gui stuff.
 
 2. AddListeners
-  I think I need to add AddListeners to all of my sliders and toggles so that I can use them in the update function (which I still need to write)
+  I think I need to add AddListeners to my toggle button so that I can use them in the update function (which I still need to write).   
+
+3. Slider not working properly
+  The pen for some reason only draws with white, though the default is a grayish color, and I am not able to slide or toggle anything.  I think I might have to create a canvas such that the pen only works when its on the canvas's coordinates, and works as a noraml clicker by the sliders and toggle button.
