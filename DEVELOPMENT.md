@@ -41,7 +41,7 @@ Just realized that I needed a development.md file, so I'll put the entire week's
   I think I need to add AddListeners to my toggle button so that I can use them in the update function (which I still need to write).   
 
 3. Slider not working properly  
-  The pen for some reason only draws with white, though the default is a grayish color, and I am not able to slide or toggle anything.  I think I might have to create a canvas such that the pen only works when its on the canvas's coordinates, and works as a noraml clicker by the sliders and toggle button.
+  The pen for some reason only draws with white, though the default is a grayish color, and I am not able to slide or toggle anything.  I think I might have to create a canvas such that the pen only works when its on the canvas's coordinates, and works as a noraml clicker by the sliders and toggle button.  
   UPDATE:  rgb and thickness is changing; thickness changing directly effects the pen width, but rgb changing isn't changing the actual color that the pen is drawing.  Also, the previous stroke disappears once I start drawing the next.
   
 **log 5/1**  
@@ -50,7 +50,7 @@ Just realized that I needed a development.md file, so I'll put the entire week's
     b) Get the color of the slider to reflect in the color of the stroke  
     c) Make sure that the strokes stay in the stack of strokes rather than disappearing  
     d) Make sure toggle button is working correctly  
-I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.pdf (openFrameworks Essentials) and its example programs to figure out how to fix some of my problems, but its not working.  
+I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.pdf (openFrameworks Essentials) and its example programs to figure out how to fix some of my problems, but its not working.    
   UPDATE: color now shows up on the stroke (needed to use ofSetColor(colorslider) rather than using Tool's setColor function) 
   
 2. Redrawing strokes  
@@ -59,4 +59,8 @@ I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.
   WHAT I NEED TO DO NEXT: although the strokes are separate, when I change color or thickness after I draw the strokes, all of them change to whatever the gui is indicating (ex. if I drew a blue swirly, and then changed the color to purple, the swirly will turn purple even if I don't want it to be purple.)  
   
 3. Alpha slider  
-  The reason why my alpha slider wasn't working was because when I setup my colorslider, my min color is black (alpha = 255), and max color was white (alpha = 255); so my alpha could only ever be 255.  I changed the min value in my setup using ofColor::fromHex(0, 0), which is black with an alpha value of 0.
+  The reason why my alpha slider wasn't working was because when I setup my colorslider, my min color is black (alpha = 255), and max color was white (alpha = 255); so my alpha could only ever be 255.  I changed the min value in my setup using ofColor::fromHex(0, 0), which is black with an alpha value of 0.  
+  
+4. Stuff left  
+  a) get the toggle buttons to work properly (or I will just delete the entire eraser function from my proposal)  
+  b) make each stroke independent in its color and thickness  
