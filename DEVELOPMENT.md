@@ -63,4 +63,4 @@ I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.
   
 4. Stuff left  
   a) get the toggle buttons to work properly (or I will just delete the entire eraser function from my proposal)  
-  b) make each stroke independent in its color and thickness  
+  b) make each stroke independent in its color and thickness (need to do b before a)
