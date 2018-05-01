@@ -42,6 +42,9 @@ class ofApp : public ofBaseApp{
 		
 		//toggles between pen and eraser
 		void ofApp::togglePressed(const void* sender, bool& pressed);
+
+		//exits and saves the drawing
+		void exit();
 		
 		//draw shapes using the buttons
 		//void buttonPressed(const void* sender);
@@ -51,4 +54,5 @@ class ofApp : public ofBaseApp{
 		ofxColorSlider color;
 		Tool tool;
 		ofxIntSlider thickness;
+		bool hide = false;
 };

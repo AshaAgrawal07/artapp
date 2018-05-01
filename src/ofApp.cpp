@@ -20,6 +20,8 @@ void ofApp::setup(){
 
 	//create the width/thickness slider
 	gui.add(thickness.setup("Pen width", 10, 0, 500));
+
+	gui.loadFromFile("drawing.xml");
 }
 
 //--------------------------------------------------------------
@@ -29,10 +31,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
-	pen_eraser.draw();
-	color.draw();
-	thickness.draw();
 	
 	//inspired by ofxVectorGraphicsExample
 	if (single_stroke.size() > 0) {
@@ -58,8 +56,10 @@ void ofApp::draw(){
 		}
 
 		tool.endShape();
+	} 
+	if (!hide) {
+		gui.draw();
 	}
-	gui.draw();
 }
 
 //--------------------------------------------------------------
@@ -68,6 +68,13 @@ void ofApp::keyPressed(int key){
 	//pops the most recent stroke off the stack of strokes
 	if (toupper(key) == 'Z') {
 		strokes.pop();
+	}
+	else if (toupper(key) == 'S') {
+		hide = true;
+		exit();
+	}
+	else if (toupper(key) == 'H') {
+		hide = !hide;
 	}
 }
 
@@ -135,11 +142,15 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 	//if toggle is false, then its on pen, else its on eraser
 	if (pen_eraser) {
 		tool = Eraser(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
-	}
-	else {
+	} else {
 		tool = Pen(color.operator const ofColor_<unsigned char> &().r, color.operator const ofColor_<unsigned char> &().g,
 			color.operator const ofColor_<unsigned char> &().b, color.operator const ofColor_<unsigned char> &().a, 10);
 	}
+}
+
+void ofApp::exit()
+{
+	gui.saveToFile("drawing.xml");
 }
 
 //void ofApp::buttonPressed(const void * sender)
