@@ -45,9 +45,9 @@ Just realized that I needed a development.md file, so I'll put the entire week's
   UPDATE:  rgb and thickness is changing; thickness changing directly effects the pen width, but rgb changing isn't changing the actual color that the pen is drawing.  Also, the previous stroke disappears once I start drawing the next.
   
 **log 5/1**  
-1. Problems I need to solve to finish:
-  a) Get alpha slider to move (it's currently stuck on 255)
-  b) Get the color of the slider to reflect in the color of the stroke
-  c) Make sure that the strokes stay in the stack of strokes rather than disappearing
-  d) Make sure toggle button is working correctly
+1. Problems I need to solve to finish:  
+  a) Get alpha slider to move (it's currently stuck on 255)  
+  b) Get the color of the slider to reflect in the color of the stroke  
+  c) Make sure that the strokes stay in the stack of strokes rather than disappearing  
+  d) Make sure toggle button is working correctly  
 I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.pdf (openFrameworks Essentials) and its example programs to figure out how to fix some of my problems, but its not working.
