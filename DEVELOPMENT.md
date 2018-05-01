@@ -42,3 +42,4 @@ Just realized that I needed a development.md file, so I'll put the entire week's
 
 3. Slider not working properly  
   The pen for some reason only draws with white, though the default is a grayish color, and I am not able to slide or toggle anything.  I think I might have to create a canvas such that the pen only works when its on the canvas's coordinates, and works as a noraml clicker by the sliders and toggle button.
+  UPDATE:  rgb and thickness is changing; thickness changing directly effects the pen width, but rgb changing isn't changing the actual color that the pen is drawing.  Also, the previous stroke disappears once I start drawing the next.
