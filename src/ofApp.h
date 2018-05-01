@@ -48,10 +48,7 @@ class ofApp : public ofBaseApp{
 
 		ofxPanel gui;
 		ofxToggle pen_eraser;
-		ofxColorSlider red;
-		ofxColorSlider green;
-		ofxColorSlider blue;
-		ofxColorSlider alpha;
+		ofxColorSlider color;
 		Tool tool;
 		ofxIntSlider thickness;
 };

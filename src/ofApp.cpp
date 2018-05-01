@@ -5,10 +5,10 @@ void ofApp::setup(){
 
 	gui.setup();
 	
-	//the entire window will be the canvas
-	bg_r_val = 255;
-	bg_g_val = 255;
-	bg_b_val = 255;
+	//the entire window will be the canvas, minus the area where where the toggle and the sliders are
+	bg_r_val = 0;
+	bg_g_val = 0;
+	bg_b_val = 0;
 	bg_a_val = 255;
 	ofBackground(bg_r_val, bg_g_val, bg_b_val, bg_a_val);
 
@@ -16,13 +16,10 @@ void ofApp::setup(){
 	gui.add(pen_eraser.setup("Pen//Eraser", false, 200, 30));
 
 	//create the color slider
-	gui.add(red.setup("Red", 100, 0, 255, 200, 30));
-	gui.add(green.setup("Green", 100, 0, 255, 200, 30));
-	gui.add(blue.setup("Blue", 100, 0, 255, 200, 30));
-	gui.add(alpha.setup("Alpha", 100, 0, 255, 200, 30));
+	gui.add(color.setup("Color", 100, 0, 255, 200, 30));
 
 	//create the width/thickness slider
-	gui.add(thickness.setup("Pen width", 10, 0, 1000));
+	gui.add(thickness.setup("Pen width", 10, 0, 500));
 }
 
 //--------------------------------------------------------------
@@ -34,18 +31,17 @@ void ofApp::update(){
 void ofApp::draw(){
 
 	pen_eraser.draw();
-	red.draw();
-	green.draw();
-	blue.draw();
-	alpha.draw();
+	color.draw();
 	thickness.draw();
 	
 	//inspired by ofxVectorGraphicsExample
 	if (single_stroke.size() > 0) {
 
 		int numPts = single_stroke.size();
-		tool.setColor(red.operator const ofColor_<unsigned char> &().r, green.operator const ofColor_<unsigned char> &().g, 
-			blue.operator const ofColor_<unsigned char> &().b, alpha.operator const ofColor_<unsigned char> &().a);
+
+		tool.setColor(color.operator const ofColor_<unsigned char> &().r, color.operator const ofColor_<unsigned char> &().g, 
+			color.operator const ofColor_<unsigned char> &().b, color.operator const ofColor_<unsigned char> &().a);
+		
 		tool.setLineWidth(thickness.operator const int &());
 		tool.noFill();
 		tool.beginShape();
@@ -63,6 +59,7 @@ void ofApp::draw(){
 
 		tool.endShape();
 	}
+	gui.draw();
 }
 
 //--------------------------------------------------------------
@@ -88,19 +85,22 @@ void ofApp::mouseMoved(int x, int y ){
 void ofApp::mouseDragged(int x, int y, int button){
 	//we add a new point to our line
 	//inspired by vectorGraphicsExample
-	
-	single_stroke.push_back(ofPoint());
-	single_stroke[single_stroke.size() - 1].x = x;
-	single_stroke[single_stroke.size() - 1].y = y;
+	if (ofPoint().x < 300) {
+		single_stroke.push_back(ofPoint());
+		single_stroke[single_stroke.size() - 1].x = x;
+		single_stroke[single_stroke.size() - 1].y = y;
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 	//inspired by vectorGraphicsExample
-	single_stroke.clear();
-	single_stroke.push_back(ofPoint());
-	single_stroke[0].x = x;
-	single_stroke[0].y = y;
+	if (ofPoint().x < 300) {
+		single_stroke.clear();
+		single_stroke.push_back(ofPoint());
+		single_stroke[0].x = x;
+		single_stroke[0].y = y;
+	}
 }
 
 //--------------------------------------------------------------
