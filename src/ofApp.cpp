@@ -16,7 +16,7 @@ void ofApp::setup(){
 	gui.add(pen_eraser.setup("Pen//Eraser", false, 200, 30));
 
 	//create the color slider
-	gui.add(colorslider.setup("Color", 100, 0, 255, 200, 30));
+	gui.add(colorslider.setup("Color", 100, ofColor::fromHex(0,0), 255, 200, 30));
 
 	//create the width/thickness slider
 	gui.add(thickness.setup("Pen width", 10, 0, 500));
@@ -50,33 +50,8 @@ void ofApp::draw(){
 	tool.beginShape();
 
 	currentpolyline.draw();
-
 	tool.endShape();
 
-	//redraw everything that was drawn
-
-	//inspired by ofxVectorGraphicsExample
-	//if (single_stroke.size() > 0) {
-//
-//		int numPts = single_stroke.size();
-//
-//		ofSetColor(colorslider);
-//		tool.setLineWidth(thickness.operator const int &());
-//		tool.noFill();
-//		tool.beginShape();
-//
-//		int rescaleRes = 1;
-//
-//		for (int i = 0; i < numPts; i++) {
-//			if (i == 0 || i == numPts - 1) {
-//				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
-//			}
-//			if (i % rescaleRes == 0) {
-//				tool.curveVertex(single_stroke[i].x, single_stroke[i].y);
-//			}
-//		}
-//		tool.endShape();
-//	} 
 	if (!hide) {
 		gui.draw();
 	}
