@@ -20,9 +20,6 @@ class ofApp : public ofBaseApp{
 	int bg_b_val;
 	int bg_a_val;
 
-	//vector <vector<ofPoint>> strokes;
-	//vector <ofPoint> single_stroke;
-
 	public:
 		void setup();
 		void update();
@@ -59,4 +56,7 @@ class ofApp : public ofBaseApp{
 		ofPolyline currentpolyline;
 		ofVec2f lastpoint;
 		vector<ofPolyline> strokes;
+		bool leftbuttonpressed;
+		//i used: http://openframeworks.cc/ofBook/chapters/intro_to_graphics.html to help use ofPolyLine in the 
+		//mousePressed(), mouseReleased(), and update() functions
 };

@@ -21,14 +21,18 @@ void ofApp::setup(){
 	//create the width/thickness slider
 	gui.add(thickness.setup("Pen width", 10, 0, 500));
 
+	leftbuttonpressed = false;
+
 	gui.loadFromFile("drawing.xml");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	ofVec2f mouseposition (ofGetMouseX(), ofGetMouseY());
-	currentpolyline.curveTo(mouseposition);
-	lastpoint = mouseposition;
+	if (leftbuttonpressed) {
+		ofVec2f mouseposition(ofGetMouseX(), ofGetMouseY());
+		currentpolyline.curveTo(mouseposition);
+		lastpoint = mouseposition;
+	}
 }
 
 //--------------------------------------------------------------
@@ -42,8 +46,12 @@ void ofApp::draw(){
 
 	ofSetColor(colorslider);
 	tool.setLineWidth(thickness.operator const int &());
+	tool.noFill();
+	tool.beginShape();
 
 	currentpolyline.draw();
+
+	tool.endShape();
 
 	//redraw everything that was drawn
 
@@ -77,7 +85,6 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	//basically control+z but only with the 'z' for simplicity purposes
-	//pops the most recent stroke off the stack of strokes
 	if (toupper(key) == 'Z') {
 		strokes.pop_back();
 	}
@@ -102,34 +109,27 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-	//we add a new point to our line
-	//inspired by vectorGraphicsExample
-	//if (ofPoint().x < 300) {
-	//	single_stroke.push_back(ofPoint());
-	//	single_stroke[single_stroke.size() - 1].x = x;
-	//	single_stroke[single_stroke.size() - 1].y = y;
-	//}
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-	//inspired by vectorGraphicsExample
-	//if (ofPoint().x < 300) {
-	//	single_stroke.clear();
-	//	single_stroke.push_back(ofPoint());
-	//	single_stroke[0].x = x;
-	//	single_stroke[0].y = y;
-	//}
-	currentpolyline.curveTo(x, y);
-	currentpolyline.curveTo(x, y);
-	lastpoint.set(x, y);
+	if (button == OF_MOUSE_BUTTON_LEFT) {
+		leftbuttonpressed = true;
+		currentpolyline.curveTo(x, y);
+		currentpolyline.curveTo(x, y);
+		lastpoint.set(x, y);
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-	currentpolyline.curveTo(x, y);
-	strokes.push_back(currentpolyline);
-	currentpolyline.clear();
+	if (button == OF_MOUSE_BUTTON_LEFT) {
+		leftbuttonpressed = false;
+		currentpolyline.curveTo(x, y);
+		strokes.push_back(currentpolyline);
+		currentpolyline.clear();
+	}
 }
 
 //--------------------------------------------------------------
