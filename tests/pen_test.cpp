@@ -4,20 +4,20 @@
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "../src/drawer.h"
+#include "../src/pen.h"
 
 
 TEST_CASE("pen constructor") {
-Pen tool = new Pen(50, 50, 50, .5, 50);
+Pen tool = new Pen(50, 50, 50, 50, 50);
 REQUIRE(tool.r_val == 50);
 REQUIRE(tool.g_val == 50);
 REQUIRE(tool.b_val == 50);
-REQUIRE(tool.a_val == .5);
+REQUIRE(tool.a_val == 50);
 REQUIRE(tool.width == 50);
 }
 
 TEST_CASE("set_r_val tests") {
-Pen tool = new Pen(50, 50, 50, .5, 50);
+Pen tool = new Pen(50, 50, 50, 50, 50);
 tool.set_r_val(-10);
 REQUIRE(tool.r_val == 0);
 
@@ -29,7 +29,7 @@ REQUIRE(tool.r_val == 200);
 }
 
 TEST_CASE("set_g_val tests") {
-Pen tool = new Pen(50, 50, 50, .5, 50);
+Pen tool = new Pen(50, 50, 50, 50, 50);
 tool.set_g_val(-10);
 REQUIRE(tool.g_val == 0);
 
@@ -53,24 +53,24 @@ REQUIRE(tool.b_val == 200);
 }
 
 TEST_CASE("set_a_val tests") {
-Pen tool = new Pen(50, 50, 50, .5, 50);
-tool.set_a_val(-.1);
+Pen tool = new Pen(50, 50, 50, 50, 50);
+tool.set_a_val(-10);
 REQUIRE(tool.a_val == 0);
 
-tool.set_a_val(1.1);
-REQUIRE(tool.a_val == 1);
+tool.set_a_val(500);
+REQUIRE(tool.a_val == 255);
 
-tool.set_a_val(.7);
-REQUIRE(tool.a_val == .7);
+tool.set_a_val(7);
+REQUIRE(tool.a_val == 7);
 }
 
 TEST_CASE("set_width tests") {
-Pen tool = new Pen(50, 50, 50, .5, 50);
+Pen tool = new Pen(50, 50, 50, 50, 50);
 tool.set_width(-10);
 REQUIRE(tool.width == 0);
 
-tool.set_width(1300);
-REQUIRE(tool.width == 1000);
+tool.set_width(2000);
+REQUIRE(tool.width == 200);
 
 tool.set_width(200);
 REQUIRE(tool.width == 200);
