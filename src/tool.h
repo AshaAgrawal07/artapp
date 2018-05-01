@@ -68,5 +68,9 @@ public:
 	*/
 	virtual void setColor(int r, int g, int b, int a);
 
+	/**
+	use ofColor to set the color of the tool
+	*/
+	virtual void setColor(ofColor color);
 };
 #endif //FINAL_PROJECT_ASHAAGRAWAL07_TOOL_H

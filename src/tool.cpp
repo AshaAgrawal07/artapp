@@ -64,3 +64,11 @@ void Tool::setColor(int r, int g, int b, int a)
 	b_val = b;
 	a_val = a;
 }
+
+void Tool::setColor(ofColor color)
+{
+	r_val = color.r;
+	g_val = color.g;
+	b_val = color.b;
+	a_val = color.a;
+}

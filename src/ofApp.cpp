@@ -39,14 +39,14 @@ void ofApp::draw(){
 
 		int numPts = single_stroke.size();
 
-		tool.setColor(color.operator const ofColor_<unsigned char> &().r, color.operator const ofColor_<unsigned char> &().g, 
-			color.operator const ofColor_<unsigned char> &().b, color.operator const ofColor_<unsigned char> &().a);
-		
+		ofColor current_color = color;
+		tool.setColor(current_color);
+
 		tool.setLineWidth(thickness.operator const int &());
 		tool.noFill();
 		tool.beginShape();
 
-		int rescaleRes = 1;
+		int rescaleRes = 6;
 
 		for (int i = 0; i < numPts; i++) {
 			if (i == 0 || i == numPts - 1) {
@@ -96,6 +96,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
 	//inspired by vectorGraphicsExample
 	if (ofPoint().x < 300) {
+		strokes.push(single_stroke);
 		single_stroke.clear();
 		single_stroke.push_back(ofPoint());
 		single_stroke[0].x = x;
@@ -136,7 +137,8 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 		tool = Eraser(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
 	}
 	else {
-		tool = Pen(bg_r_val, bg_g_val, bg_b_val, bg_a_val, 10);
+		tool = Pen(color.operator const ofColor_<unsigned char> &().r, color.operator const ofColor_<unsigned char> &().g,
+			color.operator const ofColor_<unsigned char> &().b, color.operator const ofColor_<unsigned char> &().a, 10);
 	}
 }
 
