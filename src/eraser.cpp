@@ -6,26 +6,23 @@
 
 //overriding everything from Drawer
 
-void set_r_val(int r_value) {
+void Eraser::set_r_val(int r_value) {
 //not allowed to reset r_val
 }
 
-void set_g_val(int g_value) {
+void Eraser::set_g_val(int g_value) {
 //not allowed to reset g_val
 }
 
-void set_b_val(int b_value) {
+void Eraser::set_b_val(int b_value) {
 //not allowed to reset b_val
 }
 
-void set_a_val(int a_value) {
+void Eraser::set_a_val(int a_value) {
     if(a_value <= bg_a_val) {
-        Drawer::a_val = a_value;
+		Tool::a_val = a_value;
     } else {
-        Drawer::a_val = bg_a_val;
+		Tool::a_val = bg_a_val;
     }
 }
 
-void set_width(int width) {
-    Drawer::set_width(width);
-}

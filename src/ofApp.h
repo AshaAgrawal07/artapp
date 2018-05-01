@@ -2,21 +2,18 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
-#include "ofxSvg.h"
-#include "ofxColorGradient.h"
-#include "ofxShivaVGRenderer.h"
+#include "ofxVectorGraphics.h"
+#include <vector>
+#include <stack>
+
+
+#include "tool.h"
+#include "eraser.h"
+#include "pen.h"
 
 class ofApp : public ofBaseApp{
-	//enum to represent the pen/function being used
-	enum Function {
-		PEN,
-		ERASER,
-		SHAPE
-	};
 
-	ofxPanel gui;
-	ofxToggle pen_eraser;
-	ofxColorGradient<ofColor> color_ramp;
+	
 
 	int bg_r_val;
 	int bg_g_val;
@@ -42,14 +39,24 @@ class ofApp : public ofBaseApp{
 		
 		//toggles between pen and eraser
 		void ofApp::togglePressed(const void* sender, bool& pressed);
+
+		//exits and saves the drawing
+		void exit();
 		
 		//draw shapes using the buttons
-		void buttonPressed(const void* sender);
+		//void buttonPressed(const void* sender);
 
-		std::stack <ofPoint> strokes;
+		ofxPanel gui;
+		ofxToggle pen_eraser;
+		ofxColorSlider colorslider;
+		Tool tool;
+		ofxIntSlider thickness;
+		bool hide = false;
 
-private:
-
-	ofPtr<ofBaseRenderer> _defaultRenderer;
-	ofPtr<ofxShivaVGRenderer> _shivaVGRenderer;
+		ofPolyline currentpolyline;
+		ofVec2f lastpoint;
+		vector<ofPolyline> strokes;
+		bool leftbuttonpressed;
+		//i used: http://openframeworks.cc/ofBook/chapters/intro_to_graphics.html to help use ofPolyLine in the 
+		//mousePressed(), mouseReleased(), and update() functions
 };
