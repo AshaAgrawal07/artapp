@@ -63,4 +63,7 @@ I have been using http://pdf.th7.cn/down/files/1603/openFrameworks%20Essentials.
   
 4. Stuff left  
   a) get the toggle buttons to work properly (or I will just delete the entire eraser function from my proposal)  
-  b) make each stroke independent in its color and thickness (need to do b before a)
+  b) make each stroke independent in its color and thickness (need to do b before a)  
+
+5. Final changes  
+  I realized that making each stroke independent in its color and thickness will mean that I will have to change how each stroke is made/stored, which may take longer than the given deadline.  So I changed my project proposal, making the stroke independencies and eraser function as things to be done to expand the project later on.  I added two functionalities in their places: saving the gui settings and the drawing itself.
