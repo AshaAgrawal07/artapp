@@ -19,7 +19,7 @@ void ofApp::setup(){
 	gui.add(colorslider.setup("Color", 100, ofColor::fromHex(0,0), 255, 200, 30));
 
 	//create the width/thickness slider
-	gui.add(thickness.setup("Pen width", 10, 0, 500));
+	gui.add(thickness.setup("Pen width", 10, 0, 200));
 
 	leftbuttonpressed = false;
 
@@ -44,12 +44,14 @@ void ofApp::draw(){
 		oldpoly.draw();
 	}
 
+	//now draw the new stuff
 	ofSetColor(colorslider);
 	tool.setLineWidth(thickness.operator const int &());
 	tool.noFill();
 	tool.beginShape();
 
 	currentpolyline.draw();
+
 	tool.endShape();
 
 	if (!hide) {
@@ -142,7 +144,10 @@ void ofApp::togglePressed(const void* sender, bool& pressed)
 void ofApp::exit()
 {
 	gui.saveToFile("drawing.xml");
-	std::cout << "saved" << std::endl;
+	std::cout << "setting saved" << std::endl;
+	capture_image.grabScreen(0, 0, 1024, 768);
+	capture_image.save("drawing.jpg");
+	std::cout << "drawing saved" << std::endl;
 }
 
 //--------------------------------------------------------------

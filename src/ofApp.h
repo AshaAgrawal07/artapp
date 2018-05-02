@@ -59,4 +59,6 @@ class ofApp : public ofBaseApp{
 		bool leftbuttonpressed;
 		//i used: http://openframeworks.cc/ofBook/chapters/intro_to_graphics.html to help use ofPolyLine in the 
 		//mousePressed(), mouseReleased(), and update() functions
+
+		ofImage capture_image;
 };
