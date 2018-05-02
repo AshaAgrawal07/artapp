@@ -1,7 +1,7 @@
 For my final project, I want to make an art application, where the user can use a pen of different widths and colors to create a drawing.  It will be a simpler version of PaintTool SAI and MediBang Paint Pro as it will have fewer functionalities.  Some differences will be that you will not be able to create layers for a single piece as you can in either of the aforementioned professional digital art apps, change brushes, or be able to use perspective guides.  Also, the entire drawing will be in a single color and pen thickness.
 
 Here is the full list of functionalities that I want to make sure that my artboard can do by the end of the semester:  
-- Use a slider bar to determine the thickness of a pen/eraser  
+- Use a slider bar to determine the thickness of a pen  
 - Use a slider bar or a color ramp to determine the color of the pen  
 - Affect the contrast and quality/color density of the entire picture  
 - Use 'Z' to undo strokes, so each stroke should be stored in a stack  
